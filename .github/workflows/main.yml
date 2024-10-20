@@ -1,0 +1,19 @@
+name: Deploy HTML Application
+
+on:
+  push:
+    branches:
+      - main # Change to your default branch if different
+      
+jobs:
+  deploy:
+    runs-on: self-hosted
+    
+  steps:
+  - name: Check out repository
+    uses: actions/checkout@v3
+    
+  - name: Copy HTML files to server directory
+    run: |
+      pwd
+      sudo cp *.* /var/www/html
